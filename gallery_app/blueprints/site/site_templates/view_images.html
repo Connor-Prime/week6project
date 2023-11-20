@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{%block content %}
+{% if current_user.is_authenticated %}
+<button>
+    <a href="/home/add_image/{{album_id}}">Add to Album</a> 
+</button>
+
+<div class="gallery">
+{% if images!=None%}
+    {%for image in images%}
+    <div class="img">
+        <h3>{{image.name}}</h3>
+        <div class="thumbail-img">
+            <img src= "{{image.img}}" alt="Album Tumbnail" class="img-fluid rounded">
+        </div>
+
+        <button class="album-btn">
+            <a href="/home/update_image/{{image.image_id}}">
+                Modify Image
+            </a>
+
+        </button>
+        <button class="album-btn">
+            <a href="/home/delete_image/{{image.image_id}}">Delete Image</a>
+        </button>
+    </div>
+           
+    {%endfor%}
+                
+</div>
+{%endif%}
+{%else%}
+<h1>Log in to view your albums.</h1>
+{%endif%}
+{%endblock content %}

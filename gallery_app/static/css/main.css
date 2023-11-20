@@ -1,0 +1,70 @@
+.navlink{
+    color: white;
+    padding: 7px;
+    text-decoration: none;
+}
+
+.big-txt{
+    font-size: 2em;
+}
+
+
+.navlink:hover{
+    color: white;
+}
+
+.main-navbar{
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    padding: 15px;
+}
+
+.navbtn{
+    background-color: rgb(59, 57, 57);
+    border-radius: 5%;
+    border-color: aliceblue;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.navbtn:hover{
+    background-color: blueviolet;
+}
+
+.album-thumbnails{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 15px;
+}
+
+.thumbail-img{
+    width: 200px;
+    height: 200px;
+}
+
+.thumbnail-area{
+    border: 8px solid black;
+    margin: 15px;
+}
+
+.album-btn{
+    margin: 5px;
+}
+
+.gallery{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-flow: row;
+    justify-content: center;
+    padding: 15px;
+}
+
+.img{
+    height: 200px;
+    width: 200px;
+
+}

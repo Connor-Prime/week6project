@@ -1,0 +1,42 @@
+{%extends 'base.html'%}
+
+{% block content %}
+{% if current_user.is_authenticated %}
+
+<button>
+    <a href="/create_album">Create Photo Album</a>
+</button>
+
+
+    {% if albums!=None%}
+        <div class="album-thumbnails">
+            {%for album in albums%}
+            <div class="thumbnail-area">
+                <div class="col-12">
+                    <h3>{{album.name}}</h3>
+                    <div class="thumbail-img">
+                        <img src= "{{album.thumbnail}}" alt="Album Tumbnail" class="img-fluid rounded">
+                    </div>
+                    <button class="album-btn">
+                        <a href="/home/update_album/{{album.album_id}}">
+                            Modify Album
+                        </a>
+
+                    </button>
+                    <button class="album-btn">
+                        <a href="/home/view_album/{{album.album_id}}">Open Album</a> 
+                    </button><br>
+                    <button class="album-btn">
+                        <a href="/home/delete/{{album.album_id}}">Delete Album</a>
+                    </button>
+                </div>
+            </div>
+            {%endfor%}
+                        
+        </div>
+    {%endif%}
+{%else%}
+<h1>Log in to view your albums.</h1>
+{%endif%}
+
+{% endblock content %}

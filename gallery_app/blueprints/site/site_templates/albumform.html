@@ -1,0 +1,24 @@
+
+<form action="" method='POST' class="row g-3">
+    {{ form.hidden_tag() }}
+    <div class="col-12">
+        {{form.name.label}}
+        {{form.name(class='form-contorl mt-2', placeholder='My favorite pictures')}}
+        {%for error in form.name.errors %}
+            <span class="'err-msg">{{error}}</span>
+        {%endfor%}
+    </div>
+    <div class="col-12">
+        {{form.thumbnail.label}}
+        {{form.thumbnail(class='form-contorl mt-2', placeholder='Coolpic.png')}}
+        {%for error in form.thumbnail.errors %}
+            <span class="'err-msg">{{error}}</span>
+        {%endfor%}
+    </div>
+        
+    </div>
+
+    <div class="col-12">
+        {{ form.submit(class='btn btn-primary') }}
+    </div>
+</form>
