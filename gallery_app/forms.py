@@ -17,7 +17,7 @@ class RegisterForm(FlaskForm):
 class ImageAlbumForm(FlaskForm):
     name = StringField('Image Album Name')
     thumbnail = StringField('Thumbnail Img url', validators=[DataRequired()])
-    submit = SubmitField('Add Photo ALbum')
+    submit = SubmitField('Add Photo to Album')
 
 class UpdateAlbumForm(FlaskForm):
     name = StringField('Image Album Name')
@@ -28,7 +28,7 @@ class UpdateAlbumForm(FlaskForm):
 class ImageForm(FlaskForm):
     name = StringField('Image Name')
     thumbnail = StringField('Img url', validators=[DataRequired()])
-    submit = SubmitField('Add Photo  to Album')
+    submit = SubmitField('Add Photo to Album')
 
 class UpdateImageForm(FlaskForm):
     name = StringField('Image Album Name')

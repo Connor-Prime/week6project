@@ -71,7 +71,7 @@ def update_album(id):
         db.session.commit()
         
 
-        flash(f"{album.name} has been updated.")
+        flash(f"{album.name} has been updated.", category="success")
         return redirect('/')
     
 
@@ -151,7 +151,7 @@ def update_image(id):
         db.session.commit()
         
 
-        flash(f"{img.name} has been updated.")
+        flash(f"{img.name} has been updated.", category="success")
         return redirect(f'/home/view_album/{album_id}')
 
     

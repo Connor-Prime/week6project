@@ -48,6 +48,7 @@
 .thumbnail-area{
     border: 8px solid black;
     margin: 15px;
+    background-color: aliceblue;
 }
 
 .album-btn{
@@ -58,13 +59,27 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    flex-flow: row;
-    justify-content: center;
+    justify-content: left;
     padding: 15px;
 }
 
 .img{
-    height: 200px;
+    height: 350px;
     width: 200px;
+    border: 8px solid black;
+    margin: 15px;
+    background-color: aliceblue;
+}
 
+body{
+    background-color: rgb(85, 79, 90);
+}
+
+.add-button{
+    margin: 60px;
+    padding: 10px;
+}
+
+.white-background{
+    background-color: aliceblue;
 }
