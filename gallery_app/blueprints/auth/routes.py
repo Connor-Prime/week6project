@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, flash
 from flask_jwt_extended import current_user
-from werkzeug.security import check_password_hash
+from werkzeug.security import check_password_hash, generate_password_hash
 from flask_login import login_user, logout_user
 
 # internal imports
@@ -19,15 +19,15 @@ def signup():
 
     if request.method == 'POST' and registerform.validate_on_submit():
         username = registerform.username.data
-        email = registerform.username.data
+        email = registerform.email.data
         password=registerform.password.data
 
         print(email, password, username)
 
-        if User.query.filter(username==username).first():
+        if User.query.filter(User.username==username).first():
             flash("Username already exists. Please try again.", category='warning')
             return redirect('/signup')
-        if User.query.filter(email==email).first():
+        if User.query.filter(User.email==email).first():
             flash("That email has already been registered. Please try again.", category='warning')
             return redirect('/signup')
     
@@ -55,18 +55,23 @@ def signin():
 
         print("Login Info:",email, password)
 
-        user = User.query.filter(email==email).first()
+        user = User.query.filter(User.email == email).first()
 
-        if user and check_password_hash(user.password , password):
+        if user != None:
+            if user and check_password_hash(user.password , password):
 
-            login_user(user)
+                login_user(user)
 
-            flash(f"Successfully logged in {email}. Welcome to your homepage {user.username}.", category='success')
-            return redirect('/')
-        
+                flash(f"Successfully logged in {email}. Welcome to your homepage {user.username}.", category='success')
+                return redirect('/')
+            
+            else:
+                flash("Invalid Email or Password, Please Try Again", category='warning')
+                return redirect('/signin')
         else:
             flash("Invalid Email or Password, Please Try Again", category='warning')
             return redirect('/signin')
+    
         
 
 
